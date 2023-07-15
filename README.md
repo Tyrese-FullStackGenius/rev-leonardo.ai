@@ -6,7 +6,8 @@ This Python client allows you to interact with the Leonardo AI platform using th
 Please note that reverse engineering APIs may violate the terms of service of the platform, and it's essential to use this client responsibly and at your own risk.
 
 Configuring the Bot Accounts
-The client requires you to set up your bot accounts in the config.json file. The file should be structured as follows:
+The client requires you to set up your bot accounts in the config.json file. 
+The file should be structured as follows:
 
 
 ```

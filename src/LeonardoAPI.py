@@ -2,7 +2,6 @@ import requests
 import time
 from src.GetAllAccessTokens import HeadlessSaver
 
-
 class LeoREVAPI:
     def __init__(self):
         self.webAPI = "https://api.leonardo.ai/v1/graphql"
@@ -18,6 +17,7 @@ class LeoREVAPI:
         self.get_user_details()
         self.generate_image(settings_obj["prompt"], settings_obj["negative_prompt"], True, 4, settings_obj['width'], settings_obj['height'], settings_obj['model'])
         print("+ Generating Image")
+        self.generate_image(settings_obj["prompt"], settings_obj["negative_prompt"], True, 4, settings_obj['width'], settings_obj['height'], settings_obj['model'])
         image_urls = []
         for image in self.get_images():
             image_urls.append(image["url"])
