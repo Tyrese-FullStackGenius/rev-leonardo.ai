@@ -16,7 +16,7 @@ class LeoREVAPI:
         self.api_key = account_check["access_token"]
         self.sub_id = account_check["sub_id"]
         self.get_user_details()
-        # self.generate_image(settings_obj["prompt"], settings_obj["negative_prompt"], True, 4, settings_obj['width'], settings_obj['height'], settings_obj['model'])
+        self.generate_image(settings_obj["prompt"], settings_obj["negative_prompt"], True, 4, settings_obj['width'], settings_obj['height'], settings_obj['model'])
         print("+ Generating Image")
         image_urls = []
         for image in self.get_images():
