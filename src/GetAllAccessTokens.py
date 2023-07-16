@@ -38,6 +38,7 @@ class HeadlessSaver:
                 EC.presence_of_element_located((By.ID, "signInFormUsername"))
             )
             account_data = self.select_account()
+            print('+ Account: ', account_data)
             self.driver.find_element(By.ID, "signInFormUsername").send_keys(account_data['username'])
             self.driver.find_element(By.ID, "signInFormPassword").send_keys(account_data['password'])
             self.driver.find_element(By.NAME, "signInSubmitButton").click()

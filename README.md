@@ -7,11 +7,13 @@ Please note that reverse engineering APIs may violate the terms of service of th
 
 Configuring the Bot Accounts
 The client requires you to set up your bot accounts in the config.json file. 
+
+# You can only use temp throw away accounts. It's too risky to allow login using google accounts or any other provider. Just make throwaways and load them in.
+
 The file should be structured as follows:
 
 
 ```
-
 {
     "bot_accounts": [
         {
@@ -24,7 +26,6 @@ The file should be structured as follows:
         }
     ]
 }
-
 ```
 
 You can add multiple bot accounts if you want to perform actions using different identities.

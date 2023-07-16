@@ -2,6 +2,7 @@ import requests
 import time
 from src.GetAllAccessTokens import HeadlessSaver
 
+
 class LeoREVAPI:
     def __init__(self):
         self.webAPI = "https://api.leonardo.ai/v1/graphql"
@@ -17,21 +18,13 @@ class LeoREVAPI:
         self.get_user_details()
         self.generate_image(settings_obj["prompt"], settings_obj["negative_prompt"], True, 4, settings_obj['width'], settings_obj['height'], settings_obj['model'])
         print("+ Generating Image")
-        self.generate_image(settings_obj["prompt"], settings_obj["negative_prompt"], True, 4, settings_obj['width'], settings_obj['height'], settings_obj['model'])
         image_urls = []
         for image in self.get_images():
             image_urls.append(image["url"])
         final_response = {"settings": settings_obj, "images": image_urls}
         return final_response
 
-    def generate_image(
-        self,
-        postive_propt,
-        negative_prompt,
-        nsfw=True,
-        num_images=4,
-        width=512,
-        height=768,
+    def generate_image(self,postive_prompt,negative_prompt,nsfw=True,num_images=4,width=512,height=768,
         model_id="d69c8273-6b17-4a30-a13e-d6637ae1c644",
     ):
         headers = {
@@ -58,7 +51,7 @@ class LeoREVAPI:
             "operationName": "CreateSDGenerationJob",
             "variables": {
                 "arg1": {
-                    "prompt": postive_propt,
+                    "prompt": postive_prompt,
                     "negative_prompt": negative_prompt,
                     "nsfw": nsfw,
                     "num_images": num_images,
@@ -86,6 +79,7 @@ class LeoREVAPI:
             "query": "mutation CreateSDGenerationJob($arg1: SDGenerationInput!) {\n  sdGenerationJob(arg1: $arg1) {\n    generationId\n    __typename\n  }\n}",
         }
         response = requests.post(self.webAPI, headers=headers, json=data).json()
+        print(response)
         return response
 
     def get_user_details(self):

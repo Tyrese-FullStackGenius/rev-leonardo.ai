@@ -1,0 +1,8 @@
+{
+    "bot_accounts": [
+        {
+            "email_address": "bot@email.com",
+            "password": "password"
+        }
+    ]
+}
